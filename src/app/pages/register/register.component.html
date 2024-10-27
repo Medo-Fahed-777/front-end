@@ -1,0 +1,207 @@
+<div
+  class="w-[470px] mx-auto my-[60px] flex flex-col justify-between items-center"
+>
+  <div class="flex gap-2">
+    <img src="../../../assets/images/register-1.png" alt="register-1" />
+    <img src="../../../assets/images/register-2.png" alt="register-2" />
+  </div>
+  <h2 class="text-[32px] font-bold leading-[60px] text-center">
+    طلب انشاء حساب
+  </h2>
+  <p class="text-[16px] text-[#878787] font-normal leading-[30px] text-center">
+    قم بتقديم طلب للانضمام إلى مجتمعنا التعليمي والاستفادة من الدورات والموارد
+    المتاحةة
+  </p>
+  <div class="w-full py-2 px-4">
+    <form
+      [formGroup]="registerForm"
+      class="flex flex-col gap-4"
+      (ngSubmit)="sendData()"
+    >
+      <label
+        class="text-right text-[16px] font-semibold leading-[30px]"
+        for="name"
+        >الاسم الرباعي</label
+      >
+      <input
+        type="text"
+        pInputText
+        class="w-full h-[50px] rounded-[10px] border border-[#CFD0D2] px-2 text-right"
+        id="name"
+        formControlName="name"
+        placeholder="يرجى ادخال الاسم "
+      />
+      <label
+        class="text-right text-[16px] font-semibold leading-[30px]"
+        for="email"
+        >البريد الالكتروني</label
+      >
+      <input
+        type="email"
+        pInputText
+        class="w-full h-[50px] rounded-[10px] border border-[#CFD0D2] px-2 text-right"
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="يرجى ادخال البريد الالكتروني الخاص بك"
+      />
+      <div class="w-full flex gap-4 my-3">
+        <button
+          class="border-[#CFD0D2] border text-[#102D63] rounded-md w-1/2 h-[50px] duration-300 hover:bg-[#CFD0D2]/50"
+          (click)="notLinked($event)"
+        >
+          غير مرتبط بوزارة
+        </button>
+        <button
+          [disabled]="true"
+          class="bg-[#102D63] text-white rounded-md w-1/2 h-[50px]"
+        >
+          مرتبط بوزارة
+        </button>
+      </div>
+      <div class="text-right" [hidden]="!isNotLinked">
+        <p class="text-right text-[16px] font-semibold leading-[30px]">
+          جهات اخرى
+        </p>
+        <p-dropdown
+          [options]="otherParties"
+          optionLabel="name"
+          [style]="{
+            width: '100%',
+            'text-align': 'right',
+            'margin-top': '6px',
+            'background-color': 'none',
+            border: '1px solid #CFD0D2'
+          }"
+          formControlName="otherParty"
+          placeholder="اختر الجهة"
+        ></p-dropdown>
+      </div>
+
+      <div [hidden]="isNotLinked">
+        <div class="text-right">
+          <p class="text-right text-[16px] font-semibold leading-[30px]">
+            المديريات العامة
+          </p>
+          <p-dropdown
+            [options]="divisions"
+            optionLabel="name"
+            [style]="{
+              width: '100%',
+              'text-align': 'right',
+              'margin-top': '6px',
+              'background-color': 'none',
+              border: '1px solid #CFD0D2'
+            }"
+            formControlName="division"
+            placeholder="اختر القسم"
+          ></p-dropdown>
+        </div>
+        <div class="w-full">
+          <p class="text-right text-[16px] font-semibold leading-[30px]">
+            المنصب
+          </p>
+          <div class="w-full flex gap-4">
+            <div class="w-1/2 relative">
+              <p-dropdown
+                [options]="positions"
+                optionLabel="name"
+                [style]="{
+                  width: '100%',
+                  'text-align': 'right',
+                  'margin-top': '6px',
+                  border: '1px solid #CFD0D2',
+                  'background-color': 'none'
+                }"
+                formControlName="position"
+                placeholder="اختر المنصب"
+              ></p-dropdown>
+            </div>
+            <div class="w-1/2">
+              <p-dropdown
+                [options]="ministries"
+                optionLabel="name"
+                [style]="{
+                  width: '100%',
+                  'text-align': 'right',
+                  'margin-top': '6px',
+                  border: '1px solid #CFD0D2',
+                  'background-color': 'none'
+                }"
+                formControlName="ministry"
+                placeholder="اختر الوزارة"
+              ></p-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        [disabled]="!isDisabledFn()"
+        class="{{
+          !isDisabledFn() ? 'bg-[#BA9D6E]/50' : 'bg-[#BA9D6E]'
+        }} my-3 text-white rounded-md w-full h-[50px] hover:bg-[#BA9D6E]/50 duration-300"
+      >
+        انشاء حساب
+      </button>
+      <a
+        routerLink="/main/login"
+        class="text-[16px] text-center text-[#BA9D6E] font-semibold leading-[30px] hover:text-[#BA9D6E]/80 duration-300"
+      >
+        <span class="text-[#878787]">لديك حساب؟</span>
+        تسجيل الدخول
+      </a>
+    </form>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="successDialog"
+  [style]="{ width: '400px', height: '330px' }"
+  [modal]="false"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="header">
+    <div
+      class="relative"
+      [style]="{ display: 'flex', 'flex-direction': 'row-reverse' }"
+    >
+      <div class="absolute opacity-50">
+        <img
+          src="../../../assets/images/Content.png"
+          alt="content"
+          class="absolute -top-[10px] -right-[10px] max-w-[160px] overflow-hidden"
+        />
+      </div>
+      <img src="../../../assets/icons/dialog-check.svg" alt="dialog-header" />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="flex flex-col gap-2">
+      <p class="text-[20px] font-bold leading-[38px] text-right">
+        تم إرسال طلبك بنجاح
+      </p>
+      <p
+        class="text-[16px] text-[#626262] font-normal leading-[30px] text-right"
+      >
+        شكرًا لك على التسجيل! سيتم مراجعة طلبك، وستتلقى رسالة تأكيد عبر البريد
+        الإلكتروني قريبًا. نحن متحمسون لوجودك معنا
+      </p>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <p-button
+      [style]="{
+        'background-color': '#BA9D6E',
+        color: 'white',
+        width: '100%',
+        height: '50px',
+        'border-radius': '8px',
+        padding: '4px 12px 4px 12px'
+      }"
+      label="حسناََ"
+      [text]="true"
+      (onClick)="hideDialog()"
+    />
+  </ng-template>
+    </p-dialog
+>

@@ -1,0 +1,32 @@
+:host ::ng-deep .p-dropdown {
+  /* override default styles here */
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+  animation-duration: 0.3s;
+}
+
+:host ::ng-deep .p-dropdown .p-dropdown-label {
+  /* override default label styles here */
+  font-size: 18px;
+  font-weight: normal;
+  color: white;
+  margin: 0px;
+  padding:5px;
+  
+}
+
+:host ::ng-deep .p-dropdown:hover .p-dropdown-label {
+  color: var(--secondary-color);
+  transition: 0.1s
+}
+
+
+:host ::ng-deep .p-dropdown .p-dropdown-items {
+  /* override default items styles here */
+  background-color: #fff;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}

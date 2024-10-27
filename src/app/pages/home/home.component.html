@@ -1,0 +1,329 @@
+<!-- Hero Section -->
+<div class="relative w-full h-full overflow-hidden">
+  <div
+    class="flex transition-transform duration-500 ease-in-out"
+    [style.transform]="'translateX(' + -currentSlide * 100 + '%)'"
+  >
+    <div
+      *ngFor="let image of carouselImages; let i = index"
+      class="w-full h-full flex-shrink-0"
+    >
+      <img [src]="image" [alt]="'Slide ' + (i + 1)" class="w-full h-[800px]" />
+    </div>
+  </div>
+  <div
+    class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"
+  >
+    <button
+      *ngFor="let image of carouselImages; let i = index"
+      (click)="goToSlide(i)"
+      class="w-[22px] h-1 rounded-[14px] bg-white"
+      [class.bg-[#C4AD80]]="i === currentSlide"
+      [class.bg-white]="i !== currentSlide"
+    ></button>
+  </div>
+</div>
+
+<!-- News Section -->
+<div class="w-[calc(100%-120px)] mx-auto my-[80px]">
+  <h2 class="text-right text-[40px] font-bold mb-6">اخر الاخبار</h2>
+  <div class="flex justify-between items-start gap-2">
+    <div class="flex flex-col gap-2">
+      <img src="../../../assets/images/first-new.png" alt="first-new" />
+      <h3 class="text-2xl font-bold text-right my-2">
+        مشاركة المعهد في مؤتمر القيادة العالمي
+      </h3>
+      <p class="text-gray-600 mb-2 text-right p-2">19 مايو 2017 | تطوير</p>
+      <div class="border-t border-black">
+        <h3 class="text-2xl font-bold text-right mt-4">
+          إطلاق برنامج جديد لتطوير المهارات القيادية
+        </h3>
+        <p class="text-gray-600 text-right my-4">19 مايو 2017 | تطوير</p>
+      </div>
+    </div>
+    <div class="w-[50%] h-[600px]">
+      <img
+        src="../../../assets/images/second-new.png"
+        alt="second-new"
+        class="w-[95%] h-full mx-auto"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <img src="../../../assets/images/first-new.png" alt="first-new" />
+      <h3 class="text-2xl font-bold text-right p-2 mt-2">
+        مشاركة المعهد في مؤتمر القيادة العالمي
+      </h3>
+      <p class="text-gray-600 mb-2 text-right p-2">19 مايو 2017 | تطوير</p>
+      <div class="border-t border-black">
+        <h3 class="text-2xl font-bold text-right mt-4">
+          إطلاق برنامج جديد لتطوير المهارات القيادية
+        </h3>
+        <p class="text-gray-600 text-right my-4">19 مايو 2017 | تطوير</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Colloquiums section -->
+<div class="w-[calc(100%-120px)] mx-auto my-[80px]">
+  <h2 class="text-right text-[40px] font-bold mb-6">الندوات</h2>
+  <div class="flex justify-between bg-[#FBFEFF] shadow-md rounded-lg p-4 gap-4">
+    <div class="w-[75%] flex flex-col justify-between gap-2">
+      <div class="text-[32px] font-bold text-right leading-[60px]">
+        <p>
+          المعهد العالي لإعداد وتأهيل القادة يُطلع القادة المشاركين في دورته
+          الاولى على تجربة الامارات في مجال الإدارة الحديثة والتحول الرقمي
+        </p>
+      </div>
+      <div
+        class="text-2xl font-normal text-right text-[#626262] leading-[45px]"
+      >
+        <p>
+          نظم المعهد العالي لإعداد وتأهيل القادة في الامانة العامة لمجلس الوزراء
+          زيارة إلى دولة الإمارات العربية المتحدة للقادة المشاركين في برنامج
+          إعداد وتأهيل القادة - الدورة الأولى، لاطلاعهم على التجربة الامارتية في
+          مجال الإدارة الحديثة والتحول الرقمي....؟
+        </p>
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <img
+            src="../../../assets/icons/arrow-up-left.svg"
+            alt="arrow"
+            class="size-3"
+          />
+          <a href="#" class="text-secondary-color text-[20px]"
+            >اضغط لعرض المزيد
+          </a>
+        </div>
+
+        <p class="text-[#626262] text-[20px] font-normal">
+          26 كانون الأول 2023
+        </p>
+      </div>
+    </div>
+    <div>
+      <img
+        src="../../../assets/images/hero-2.png"
+        alt="first-new"
+        class="w-[430px] h-[450px] rounded-lg"
+      />
+    </div>
+  </div>
+</div>
+
+  <!-- Courses section -->
+  <div class="w-[calc(100%-120px)] mx-auto my-[80px]">
+    <h2 class="text-right text-[40px] font-bold mb-6">البرامج والدورات</h2>
+    <div class="flex justify-between gap-4">
+      <div
+        *ngFor="let course of courses"
+        class="w-[30%] flex flex-col gap-2 relative"
+      >
+        <img
+          src="../../../assets/icons/triangle.svg"
+          alt="triangle"
+          class="absolute right-[18px] -top-4 w-[20px] h-[20px]"
+        />
+        <div
+          class="absolute -top-4 right-9 bg-[#C4AD80] w-[90px] h-[163px] text-white flex flex-col items-center justify-start rounded-tl-[8px] rounded-br-[8px] rounded-bl-[8px] p-2"
+        >
+          <span class="text-5xl font-bold mt-4">{{
+            course.date.split("-")[0]
+          }}</span>
+          <span class="text-[20px] font-bold mt-1">{{
+            getArabicMonth(course.date.split("-")[1])
+          }}</span>
+        </div>
+        <img [src]="course.image" alt="Course logo" class="w-full h-[300px]" />
+        <div class="w-full h-[200px] flex flex-col justify-between p-4">
+          <p class="text-2xl font-bold text-right leading-[45px]">
+            {{ course.title }}
+          </p>
+          <p class="text-right text-[#626262] text-[16px] font-normal">
+            التاريخ: {{ course.date }}
+          </p>
+          <p class="text-right text-[#626262] text-[16px] font-normal">
+            الوقت: {{ course.time }}
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img
+            src="../../../assets/icons/arrow-up-left.svg"
+            alt="arrow"
+            class="size-3"
+          />
+          <a href="#" class="text-secondary-color text-[20px]"
+            >اضغط لعرض المزيد
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Partners Section -->
+  <div class="bg-[#0F2348] py-16 relative overflow-hidden">
+    <div class="w-[calc(100%-120px)] mx-auto">
+      <h2 class="text-center text-white text-[40px] font-bold mb-12">
+        شركاؤنا
+      </h2>
+
+      <!-- Fixed left div -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0F2348] to-transparent z-10"
+      ></div>
+
+      <!-- Scrolling container -->
+      <div class="overflow-hidden">
+        <div class="flex animate-marquee">
+          <!-- Images for seamless looping -->
+          <div class="flex items-center gap-[42px] whitespace-nowrap">
+            <img
+              src="../../../assets/images/our-partners-first.png"
+              alt="Partner 1"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-second.png"
+              alt="Partner 2"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-third.png"
+              alt="Partner 3"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-fourht.png"
+              alt="Partner 4"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-first.png"
+              alt="Partner 1"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-second.png"
+              alt="Partner 2"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-third.png"
+              alt="Partner 3"
+              class="w-[300px] h-[150px]"
+            />
+            <img
+              src="../../../assets/images/our-partners-fourht.png"
+              alt="Partner 4"
+              class="w-[300px] h-[150px]"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed right div -->
+      <div
+        class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0F2348] to-transparent z-10"
+      ></div>
+    </div>
+  </div>
+
+  <!-- info section -->
+  <div class="w-[calc(100%-120px)] mx-auto bg-[#F8F8F8] relative h-[800px] my-[80px]">
+    <img
+      src="../../../assets/images/map.png"
+      alt="Background Image"
+      class="w-[870px] mx-auto h-full mt-[30px] absolute inset-0"
+    />
+    <div
+      class="w-[calc(100%-120px)] mx-auto flex justify-between items-center absolute inset-0"
+    >
+      <div
+        class="bg-[#D1D1D154] w-[308px] h-[464px] flex flex-col justify-between items-center gap-2 p-4 rounded-lg backdrop-blur-sm"
+      >
+        <img
+          src="../../../assets/images/first-info-card.png"
+          alt="Trainer Icon"
+        />
+        <p class="text-[64px] font-bold text-[#0C4A9C]">250</p>
+        <p class="text-[32px] font-bold text-[#878787]">مدرب</p>
+      </div>
+      <div
+        class="bg-[#D1D1D154] w-[308px] h-[464px] mb-[122px] flex flex-col justify-between items-center gap-2 p-4 rounded-lg backdrop-blur-sm"
+      >
+        <img
+          src="../../../assets/images/second-info-card.png"
+          alt="Book Icon"
+        />
+        <p class="text-[64px] font-bold text-[#0C4A9C]">40</p>
+        <p class="text-[32px] font-bold text-[#878787]">برنامج تدريبي</p>
+      </div>
+      <div
+        class="bg-[#D1D1D154] w-[308px] h-[464px] flex flex-col justify-between items-center gap-2 p-4 rounded-lg backdrop-blur-sm"
+      >
+        <img src="../../../assets/images/third-info-card.png" alt="Bell Icon" />
+        <p class="text-[64px] font-bold text-[#0C4A9C]">43</p>
+        <p class="text-[32px] font-bold text-[#878787]">برنامج جديد</p>
+      </div>
+      <div
+        class="bg-[#D1D1D154] w-[308px] h-[464px] mb-[122px] flex flex-col justify-between items-center gap-2 p-4 rounded-lg backdrop-blur-sm"
+      >
+        <img
+          src="../../../assets/images/fourth-info-card.png"
+          alt="Group Icon"
+        />
+        <p class="text-[64px] font-bold text-[#0C4A9C]">250</p>
+        <p class="text-[32px] font-bold text-[#878787]">متدرب</p>
+      </div>
+    </div>
+  </div>
+  <!-- Frequently Asked Questions Section -->
+  <div class=" w-full my-[80px] bg-[#0F2348]">
+    <div class="w-[80%] mx-auto flex flex-col justify-center items-center gap-4">
+      <p class="text-center text-[16px] font-bold text-secondary-color mt-24">
+        الأسئلة الشائعة
+      </p>
+      <h2 class="text-center text-[48px] text-white font-bold">
+        الأسئلة المكررة
+      </h2>
+      <p class="text-center text-[20px] font-normal text-[#CFD0D2]">
+        كل ما تحتاج لمعرفته حول البرامج والخدمات والتسجيل في المعهد العالي
+        لإعداد وتأهيل القادة
+      </p>
+      <p-accordion
+      class="w-[75%] mx-auto my-8"
+      expandIcon="pi pi-plus-circle"
+      collapseIcon="pi pi-minus-circle"
+    >
+      <p-accordionTab *ngFor="let question of accordionQuestions">
+        <ng-template pTemplate="header">
+            <p class="text-[18px] font-bold leading-[38px] text-white mt-4">
+              {{question.question}}
+            </p>
+          
+        </ng-template>
+        
+          <p class="text-[16px] font-normal leading-[30px] text-[#CFD0D2] text-right">
+            {{question.answer}}
+          </p>
+
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+
+  <!-- contact us section -->
+   <div class="w-[calc(100%-120px)] bg-blue-500 mx-auto my-[80px] flex flex-col justify-center items-center gap-4">
+    <div class="w-[50%] flex flex-col gap-4 bg-red-500">
+      <p class="text-center text-[16px] text-secondary-color font-bold">
+        تواصل معنا
+      </p>
+      <h2 class="text-center text-[48px] font-bold">مواقعنا</h2>
+      <p class="text-center text-[20px] font-normal text-[#CFD0D2] leading-[38px]">
+        نحن هنا لمساعدتك في أي استفسار أو دعم تحتاجه. لا تتردد في الاتصال بنا لتعزيز مسيرتك القيادية
+      </p>
+    </div>
+    
+   </div>
+
+

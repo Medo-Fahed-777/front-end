@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+// @import "tailwindcss/utilities";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.scss";
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+@font-face {
+  font-family: "Cairo";
+  src: url(./assets/fonts/Cairo/cairo.ttf) format("ttf");
+}
+
+html,
+body {
+  font-family: "Cairo", sans-serif !important;
+  margin: 0;
+  background-color: var(--surface-b);
+  overflow-x: hidden;
+  height: 100% !important;
+}
+
+.flipV {
+  -moz-transform: scale(-1, -1);
+  -o-transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  transform: scale(-1, -1);
+}
+
+.custom-footer {
+  display: block !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 8px !important;
+}
+
+.custom-header {
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 8px !important;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+* {
+  font-family: "Cairo", sans-serif;
+}
+.p-paginator .p-dropdown .p-dropdown-label {
+  font-family:monospace; 
+  padding-right: 10px;
+  padding-left: 10px;
+}

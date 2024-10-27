@@ -1,0 +1,43 @@
+:host ::ng-deep .p-carousel {
+  /* override default styles here */
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+:host ::ng-deep .p-carousel .p-carousel-prev, :host ::ng-deep .p-carousel .p-carousel-next {
+  display: none;
+}
+// :host ::ng-deep .p-carousel .p-carousel-indicators.p-reset.ng-star-inserted {
+//   display: flex;
+//   background-color: red;
+// }
+// :host ::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight.ng-star-inserted {
+//   background-color: yellow;
+//   color: yellow;
+// }
+
+:host ::ng-deep .p-accordion{
+  border: none;
+  background-color: none;
+}
+
+
+:host ::ng-deep .p-accordion .p-accordion-header-link{
+ padding: 0;
+  margin: 0;
+  border: none;
+  background-color: #0F2348;
+  color: #fff;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-content{
+  background-color: transparent;
+  padding: 0;
+  margin: 8px 0 32px 0;
+}
+

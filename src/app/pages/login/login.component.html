@@ -1,0 +1,64 @@
+<div
+  class="w-[470px] mx-auto my-[60px] flex flex-col justify-between items-center"
+>
+  <div class="flex gap-2">
+    <img src="../../../assets/images/register-1.png" alt="register-1" />
+    <img src="../../../assets/images/register-2.png" alt="register-2" />
+  </div>
+  <h2 class="text-[32px] font-bold leading-[60px] text-center">
+    تسجيل الدخول إلى حسابك
+  </h2>
+  <p class="text-[16px] text-[#878787] font-normal leading-[30px] text-center">
+    يرجى إدخال اسم المستخدم وكلمة المرور الخاصة بك للوصول إلى محتوى الدورات والموارد التعليمية
+  </p>
+  <div class="w-full py-2 px-4">
+    <form
+      [formGroup]="loginForm"
+      class="flex flex-col gap-4"
+      (ngSubmit)="sendData()"
+    >
+      <label
+        class="text-right text-[16px] font-semibold leading-[30px]"
+        for="email"
+        >البريد الالكتروني</label
+      >
+      <input
+        type="email"
+        pInputText
+        class="w-full h-[50px] rounded-[10px] border border-[#CFD0D2] px-2 text-right"
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="يرجى ادخال البريد الالكتروني الخاص بك"
+      />
+
+      <label
+        class="text-right text-[16px] font-semibold leading-[30px]"
+        for="password"
+        >كلمة المرور</label
+      >
+      <input
+        type="password"
+        class="w-full h-[50px] rounded-[10px] border border-[#CFD0D2] px-2 text-right"
+        id="password"
+        formControlName="password"
+        placeholder="يرجى ادخال كلمة المرور"
+      />
+       <button
+        [disabled]="!isDisabledFn()"
+        class="{{
+          !isDisabledFn() ? 'bg-[#BA9D6E]/50' : 'bg-[#BA9D6E]'
+        }} my-3 text-white rounded-md w-full h-[50px] hover:bg-[#BA9D6E]/50 duration-300"
+      >
+        تسجيل الدخول
+      </button>
+      <a
+        routerLink="/main/register"
+        class="text-[16px] text-center text-[#BA9D6E] font-semibold leading-[30px] hover:text-[#BA9D6E]/80 duration-300"
+      >
+        <span class="text-[#878787]">ليس لديك حساب؟ </span>
+      طلب انشاء حساب 
+      </a>
+    </form>
+  </div>
+</div>
